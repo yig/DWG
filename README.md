@@ -15,6 +15,17 @@ Please install [CMake](https://cmake.org)
     cmake .. -DCMAKE_BUILD_TYPE=Release
     make
 
+### Conda
+```
+conda create -n DWG
+conda activate DWG
+conda install conda-forge::mamba
+mamba install conda-forge::cgal "conda-forge::pcl>1.11" conda-forge::eigen conda-forge::cuda conda-forge::cmake
+mamba install conda-forge::llvm-openmp conda-forge::clangxx
+cmake -B build-clang -D CMAKE_BUILD_TYPE=Release -D CMAKE_POLICY_VERSION_MINIMUM=3.5 -D CMAKE_C_COMPILER=clang -D CMAKE_CXX_COMPILER=clang++
+cmake --build build-clang
+```
+
 Thanks to [libigl](https://libigl.github.io/), [Geometry Central](https://geometry-central.net/), [cudaKDTree](https://github.com/ingowald/cudaKDTree), [marching-cubes-with-CUDA](https://github.com/lcaucci78/marching-cubes-with-CUDA), these libraries provide us with big assistance.
 ## Run
     ./DWG_CUDA --in_path <path> --in_name <file name> --out_path <path>
