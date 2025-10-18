@@ -21,6 +21,7 @@ find_path(LIBIGL_INCLUDE_DIR igl/readOBJ.h
         ${CMAKE_SOURCE_DIR}/../libigl
         ${CMAKE_SOURCE_DIR}/../../libigl
         ${CMAKE_SOURCE_DIR}/deps
+	${CMAKE_SOURCE_DIR}/deps/libigl
         /usr
         /usr/local
         /usr/local/igl/libigl

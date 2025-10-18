@@ -2,6 +2,9 @@
 #include <thrust/device_ptr.h>
 #include <thrust/extrema.h>
 #include <thrust/device_vector.h>
+#include <thrust/sequence.h>
+#include <thrust/sort.h>
+
 #include <unordered_map>
 #include <set>
 #include <string>
