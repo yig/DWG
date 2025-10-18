@@ -20,9 +20,10 @@ cmake_policy(SET CMP0002 NEW)   # don't implicitly dereference inside if()
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 find_package(CGAL COMPONENTS Core)
-find_package(PCL REQUIRED COMPONENTS common)
+find_package(PCL REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(CUDAToolkit REQUIRED)
+find_package(GMP REQUIRED)
 
 ### libIGL options: choose your dependencies (by default everything is OFF, in this example we need the viewer) ###
 find_package(LIBIGL REQUIRED)
@@ -69,6 +70,7 @@ target_link_libraries(${PROJECT_NAME} igl::core )
 target_link_libraries(${PROJECT_NAME} Eigen3::Eigen)
 target_link_libraries(${PROJECT_NAME} ${PCL_LIBRARIES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${PCL_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} gmp)
 
 ## Everyone says nvcc inherits the include paths from CMake properly, but it's not working for me.
 set(CMAKE_CUDA_FLAGS "-I$ENV{CONDA_PREFIX}/include/eigen3")
